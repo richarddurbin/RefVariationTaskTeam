@@ -33,6 +33,11 @@ protocol ReferenceAlignmentTypes {
         //If the thread is all within a single block then [startOffset,endOffset) is a semi-open interval 
         //of length endOffset-startOffset.
         int endOffset;
+        
+        //When a startOffset or endOffset is in a block that is reverse complemented, the reverse complement
+        //operation is performed first.  So if the thread has startOffset = 1 and endOffset = 3 in a block 
+        //with sequence ACCTA the thread sequence is CC, but if the block is reverse complemented to TAGGT
+        //the thread sequence with the same offsets is AG.
     }
 
     record GA4GHGraphToGraphAlignment {
